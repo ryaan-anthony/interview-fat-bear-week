@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Bears - Fat Bear Week 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #3498db;
+        }
+
+        .page-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .bears-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .bear-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .bear-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .bear-photos {
+            display: flex;
+            height: 200px;
+        }
+
+        .photo-before,
+        .photo-after {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .photo-before {
+            background-image: url('https://media.istockphoto.com/id/1017220160/photo/large-carpathian-brown-bear-portrait-in-the-woods-europe-romania.jpg?s=2048x2048&w=is&k=20&c=xBopat_cJVEiWLd350PWp-AZmJROjJJi0lk8fSanjkk=');
+        }
+
+        .photo-after {
+            background-image: url('https://media.istockphoto.com/id/1421052567/photo/brown-bear-on-a-rock.jpg?s=2048x2048&w=is&k=20&c=hL2wuI6H8fAB-7CnjMWqUFhXgZbHHCCGN46jN1wPdK4=');
+        }
+
+        .photo-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .bear-info {
+            padding: 1.5rem;
+        }
+
+        .bear-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 0.5rem;
+        }
+
+        .bear-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .bear-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        .vote-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .vote-count {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #e67e22;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d35400;
+        }
+
+        .filters {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-weight: bold;
+        }
+
+        .filter-select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">🐻 Fat Bear Week</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bears.html" class="active">Bears</a></li>
+                    <li><a href="bracket.html">Bracket</a></li>
+                    <li><a href="results.html">Results</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="page-title">
+                <h1>Meet the Competing Bears</h1>
+                <p>Get to know our chunky champions and their incredible transformations</p>
+            </section>
+
+            <section class="filters">
+                <span class="filter-label">Sort by:</span>
+                <select class="filter-select">
+                    <option>Weight Gain (Highest)</option>
+                    <option>Weight Gain (Lowest)</option>
+                    <option>Name (A-Z)</option>
+                    <option>Most Votes</option>
+                </select>
+                <span class="filter-label">Filter:</span>
+                <select class="filter-select">
+                    <option>All Bears</option>
+                    <option>Still Competing</option>
+                    <option>Eliminated</option>
+                </select>
+            </section>
+
+            <section class="bears-grid">
+                <div class="bear-card">
+                    <div class="bear-photos">
+                        <div class="photo-before">
+                            <div class="photo-label">June</div>
+                        </div>
+                        <div class="photo-after">
+                            <div class="photo-label">September</div>
+                        </div>
+                    </div>
+                    <div class="bear-info">
+                        <h3 class="bear-name">Bear #747 - Otis</h3>
+                        <p class="bear-description">The legendary champion returns! Otis is known for his dominant fishing technique and impressive size. This seasoned veteran has claimed the title multiple times.</p>
+                        <div class="bear-stats">
+                            <div class="stat">
+                                <div class="stat-value">680 lbs</div>
+                                <div class="stat-label">June Weight</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">890 lbs</div>
+                                <div class="stat-label">Sept Weight</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">+210 lbs</div>
+                                <div class="stat-label">Weight Gain</div>
+                            </div>
+                        </div>
+                        <div class="vote-info">
+                            <span class="vote-count">342 votes</span>
+                            <a href="bear-detail.html?id=747" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bear-card">
+                    <div class="bear-photos">
+                        <div class="photo-before">
+                            <div class="photo-label">June</div>
+                        </div>
+                        <div class="photo-after">
+                            <div class="photo-label">September</div>
+                        </div>
+                    </div>
+                    <div class="bear-info">
+                        <h3 class="bear-name">Bear #856 - Divot</h3>
+                        <p class="bear-description">A massive female bear with distinctive blonde ears. Divot is known for her fishing prowess and protective nature with her cubs.</p>
+                        <div class="bear-stats">
+                            <div class="stat">
+                                <div class="stat-value">520 lbs</div>
+                                <div class="stat-label">June Weight</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">745 lbs</div>
+                                <div class="stat-label">Sept Weight</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">+225 lbs</div>
+                                <div class="stat-label">Weight Gain</div>
+                            </div>
+                        </div>
+                        <div class="vote-info">
+                            <span class="vote-count">298 votes</span>
+                            <a href="bear-detail.html?id=856" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bear-card">
+                    <div class="bear-photos">
+                        <div class="photo-before">
+                            <div class="photo-label">June</div>
+                        </div>
+                        <div class="photo-after">
+                            <div class="photo-label">September</div>
+                        </div>
+                    </div>
+                    <div class="bear-info">
+                        <h3 class="bear-name">Bear #128 - Grazer</h3>
+                        <p class="bear-description">The remarkable mother bear who has transformed herself into one of the largest females at Brooks Falls while raising her cubs.</p>
+                        <div class="bear-stats">
+                            <div class="stat">
+                                <div class="stat-value">495 lbs</div>
+                                <div class="stat-label">June Weight</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">700 lbs</div>
+                                <div class="stat-label">Sept Weight</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">+205 lbs</div>
+                                <div class="stat-label">Weight Gain</div>
+                            </div>
+                        </div>
+                        <div class="vote-info">
+                            <span class="vote-count">267 votes</span>
+                            <a href="bear-detail.html?id=128" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bear-card">
+                    <div class="bear-photos">
+                        <div class="photo-before">
+                            <div class="photo-label">June</div>
+                        </div>
+                        <div class="photo-after">
+                            <div class="photo-label">September</div>
+                        </div>
+                    </div>
+                    <div class="bear-info">
+                        <h3 class="bear-name">Bear #480 - Otis Jr.</h3>
+                        <p class="bear-description">Following in his father's massive footsteps, this young male has shown incredible growth potential and fishing skills.</p>
+                        <div class="bear-stats">
+                            <div class="stat">
+                                <div class="stat-value">445 lbs</div>
+                                <div class="stat-label">June Weight</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">615 lbs</div>
+                                <div class="stat-label">Sept Weight</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">+170 lbs</div>
+                                <div class="stat-label">Weight Gain</div>
+                            </div>
+                        </div>
+                        <div class="vote-info">
+                            <span class="vote-count">189 votes</span>
+                            <a href="bear-detail.html?id=480" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

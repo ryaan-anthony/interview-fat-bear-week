@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bear #747 Otis - Fat Bear Week 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .bear-profile {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .bear-header {
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .bear-number {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .bear-name {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .bear-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .champion-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #f1c40f;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .bear-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .bear-photos {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-section {
+            flex: 1;
+            position: relative;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .photo-before {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('https://media.istockphoto.com/id/1017220160/photo/large-carpathian-brown-bear-portrait-in-the-woods-europe-romania.jpg?s=2048x2048&w=is&k=20&c=xBopat_cJVEiWLd350PWp-AZmJROjJJi0lk8fSanjkk=');
+        }
+
+        .photo-after {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('https://media.istockphoto.com/id/1421052567/photo/brown-bear-on-a-rock.jpg?s=2048x2048&w=is&k=20&c=hL2wuI6H8fAB-7CnjMWqUFhXgZbHHCCGN46jN1wPdK4=');
+        }
+
+        .photo-label {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .bear-info {
+            padding: 2rem;
+        }
+
+        .info-section {
+            margin-bottom: 2rem;
+        }
+
+        .info-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #e67e22;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #e67e22;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .bear-story {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 1.5rem;
+        }
+
+        .voting-history {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .history-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .tournament-path {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+        }
+
+        .path-round {
+            min-width: 150px;
+            text-align: center;
+            position: relative;
+        }
+
+        .path-round:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #e67e22;
+        }
+
+        .round-name {
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 0.5rem;
+        }
+
+        .round-result {
+            background: #e8f5e8;
+            border: 2px solid #27ae60;
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .round-result.current {
+            background: #fff3cd;
+            border-color: #ffc107;
+        }
+
+        .round-result.upcoming {
+            background: #f8f9fa;
+            border-color: #dee2e6;
+            color: #666;
+        }
+
+        .vote-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .matchup-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .matchup-card.won {
+            border-color: #27ae60;
+            background: #e8f5e8;
+        }
+
+        .opponent-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .vote-results {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .vote-count {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #ecf0f1;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #27ae60;
+            transition: width 0.3s;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #e67e22;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">🐻 Fat Bear Week</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bears.html">Bears</a></li>
+                    <li><a href="bracket.html">Bracket</a></li>
+                    <li><a href="results.html">Results</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="bear-profile">
+                <div class="bear-header">
+                    <div class="champion-badge">🏆 4x Champion</div>
+                    <div class="bear-number">Bear #747</div>
+                    <h1 class="bear-name">Otis</h1>
+                    <p class="bear-subtitle">The Legendary Fisherman of Brooks Falls</p>
+                </div>
+
+                <div class="bear-content">
+                    <div class="bear-photos">
+                        <div class="photo-section photo-before">
+                            <div class="photo-label">June 2025 - Early Season</div>
+                        </div>
+                        <div class="photo-section photo-after">
+                            <div class="photo-label">September 2025 - Pre-Hibernation</div>
+                        </div>
+                    </div>
+
+                    <div class="bear-info">
+                        <div class="info-section">
+                            <h3 class="info-title">Transformation Stats</h3>
+                            <div class="stats-grid">
+                                <div class="stat-box">
+                                    <div class="stat-value">680</div>
+                                    <div class="stat-label">June Weight (lbs)</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-value">890</div>
+                                    <div class="stat-label">September Weight (lbs)</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-value">+210</div>
+                                    <div class="stat-label">Weight Gain (lbs)</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-value">30.9%</div>
+                                    <div class="stat-label">Percentage Increase</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-section">
+                            <h3 class="info-title">Tournament Performance</h3>
+                            <div class="stats-grid">
+                                <div class="stat-box">
+                                    <div class="stat-value">542</div>
+                                    <div class="stat-label">Total Votes Received</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-value">87%</div>
+                                    <div class="stat-label">Win Rate</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-section">
+                            <div class="bear-story">
+                                <h4 style="margin-bottom: 1rem; color: #3498db;">🐻 Otis's Story</h4>
+                                <p>Otis is the undisputed king of Brooks Falls, a massive male brown bear who has dominated the salmon fishing grounds for over a decade. Known for his incredible fishing technique and dominant presence, Otis has won Fat Bear Week multiple times and continues to be a fan favorite.</p>
+                                <br>
+                                <p>This season, Otis has shown remarkable dedication to bulking up for winter, spending countless hours at the falls perfecting his salmon-catching skills. His impressive 210-pound weight gain demonstrates his expertise in securing the best fishing spots and maximizing his caloric intake.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="voting-history">
+                <h2 class="history-title">Tournament Journey 2025</h2>
+
+                <div class="tournament-path">
+                    <div class="path-round">
+                        <div class="round-name">Round 1</div>
+                        <div class="round-result">✅ Won vs #435 Holly<br>187-93 votes</div>
+                    </div>
+                    <div class="path-round">
+                        <div class="round-name">Quarterfinals</div>
+                        <div class="round-result current">🗳️ vs #856 Divot<br>Currently leading</div>
+                    </div>
+                    <div class="path-round">
+                        <div class="round-name">Semifinals</div>
+                        <div class="round-result upcoming">⏳ Awaiting<br>Quarterfinal results</div>
+                    </div>
+                    <div class="path-round">
+                        <div class="round-name">Finals</div>
+                        <div class="round-result upcoming">🏆 Championship<br>Round</div>
+                    </div>
+                </div>
+
+                <h3 style="text-align: center; margin-bottom: 1rem; color: #8B4513;">Matchup Details</h3>
+                <div class="vote-breakdown">
+                    <div class="matchup-card won">
+                        <div class="opponent-name">vs Bear #435 Holly</div>
+                        <div class="vote-results">
+                            <span class="vote-count">Otis: 187</span>
+                            <span class="vote-count">Holly: 93</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 67%"></div>
+                        </div>
+                        <div style="margin-top: 0.5rem; font-weight: bold; color: #27ae60;">Victory!</div>
+                    </div>
+
+                    <div class="matchup-card">
+                        <div class="opponent-name">vs Bear #856 Divot</div>
+                        <div class="vote-results">
+                            <span class="vote-count">Otis: 89</span>
+                            <span class="vote-count">Divot: 64</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 58%"></div>
+                        </div>
+                        <div style="margin-top: 0.5rem; font-weight: bold; color: #f39c12;">Voting Open</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="bracket.html" class="btn btn-primary">Vote for Otis</a>
+                <a href="bears.html" class="btn btn-secondary">← Back to All Bears</a>
+                <a href="results.html" class="btn btn-secondary">View Tournament Results</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

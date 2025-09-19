@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Fat Bear Week 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .login-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #e67e22;
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkbox {
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            background: #e67e22;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+
+        .divider {
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+            color: #666;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider span {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0 1rem;
+        }
+
+        .signup-link {
+            color: #666;
+        }
+
+        .signup-link a {
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        .alert {
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .home-link:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .features-reminder {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .features-reminder h4 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+
+        .features-reminder ul {
+            color: #666;
+            padding-left: 1.5rem;
+        }
+
+        .features-reminder li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="home-link">← Back to Home</a>
+
+    <div class="login-container">
+        <div class="logo">🐻</div>
+        <h1 class="login-title">Welcome Back!</h1>
+        <p class="login-subtitle">Sign in to vote for your favorite fat bears</p>
+
+        <div class="alert alert-info">
+            🗳️ Quarterfinals voting is now open! Don't miss your chance to vote.
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" required placeholder="your@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-input" required placeholder="Enter your password">
+            </div>
+
+            <div class="form-checkbox">
+                <input type="checkbox" id="remember" name="remember" class="checkbox">
+                <label for="remember">Remember me for 30 days</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign In & Start Voting</button>
+        </form>
+
+        <div style="text-align: center; margin: 1rem 0;">
+            <a href="#" style="color: #e67e22; text-decoration: none;">Forgot your password?</a>
+        </div>
+
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <button class="btn btn-secondary">Create New Account</button>
+
+        <div class="signup-link">
+            New to Fat Bear Week? <a href="register.html">Sign up free</a>
+        </div>
+
+        <div class="features-reminder">
+            <h4>Why create an account?</h4>
+            <ul>
+                <li>Vote in all bracket rounds</li>
+                <li>Track your voting history</li>
+                <li>Get notified of new rounds</li>
+                <li>Access exclusive bear statistics</li>
+                <li>Join the community leaderboard</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Simple validation
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email && password) {
+                // Simulate successful login
+                alert('Login successful! Redirecting to voting...');
+                window.location.href = 'bracket.html';
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+    </script>
+</body>
+</html>
+
